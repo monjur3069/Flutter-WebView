@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_view/web_view.dart';
+import 'package:web_view_app/screens/home_screen.dart';
+import 'package:web_view_app/screens/web_view_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Web View App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff006A70)),
         useMaterial3: true,
       ),
-      home: WebView(),
+      initialRoute: HomePage.routeName,
+      routes: {
+        HomePage.routeName : (_)=> const HomePage(),
+        WebViewPage.routeName : (_)=> const WebViewPage(),
+      },
     );
   }
 }
